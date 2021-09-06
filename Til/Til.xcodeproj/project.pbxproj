@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		3921697B26E6B337006707F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3921697A26E6B337006707F3 /* Preview Assets.xcassets */; };
 		3921698626E6B337006707F3 /* TilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921698526E6B337006707F3 /* TilTests.swift */; };
 		3921699126E6B338006707F3 /* TilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921699026E6B338006707F3 /* TilUITests.swift */; };
+		392169A926E6B648006707F3 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 392169A826E6B648006707F3 /* Nimble */; };
+		392169AC26E6B674006707F3 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 392169AB26E6B674006707F3 /* Quick */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				392169AC26E6B674006707F3 /* Quick in Frameworks */,
+				392169A926E6B648006707F3 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +83,7 @@
 				3921698426E6B337006707F3 /* TilTests */,
 				3921698F26E6B338006707F3 /* TilUITests */,
 				3921697126E6B334006707F3 /* Products */,
+				392169AA26E6B674006707F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +135,13 @@
 			path = TilUITests;
 			sourceTree = "<group>";
 		};
+		392169AA26E6B674006707F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +158,8 @@
 			dependencies = (
 			);
 			name = Til;
+			packageProductDependencies = (
+			);
 			productName = Til;
 			productReference = 3921697026E6B334006707F3 /* Til.app */;
 			productType = "com.apple.product-type.application";
@@ -164,6 +178,10 @@
 				3921698326E6B337006707F3 /* PBXTargetDependency */,
 			);
 			name = TilTests;
+			packageProductDependencies = (
+				392169A826E6B648006707F3 /* Nimble */,
+				392169AB26E6B674006707F3 /* Quick */,
+			);
 			productName = TilTests;
 			productReference = 3921698126E6B337006707F3 /* TilTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -217,6 +235,10 @@
 				Base,
 			);
 			mainGroup = 3921696726E6B334006707F3;
+			packageReferences = (
+				392169A426E6B5F7006707F3 /* XCRemoteSwiftPackageReference "Quick" */,
+				392169A726E6B648006707F3 /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 3921697126E6B334006707F3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -580,6 +602,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		392169A426E6B5F7006707F3 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		392169A726E6B648006707F3 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		392169A826E6B648006707F3 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 392169A726E6B648006707F3 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		392169AB26E6B674006707F3 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 392169A426E6B5F7006707F3 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3921696826E6B334006707F3 /* Project object */;
 }
