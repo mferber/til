@@ -1,0 +1,99 @@
+# SwiftLint config
+# Matthias Ferber 
+
+included:
+
+excluded:
+  - Carthage
+
+disabled_rules:
+  - closure_parameter_position  # allow params on new line when necessary
+  - force_cast  # allow forced casts when necessary
+  - force_try  # allow forced try { } when necessary
+  - force_unwrapping  # allow forced unwrapping of optionals when necessary
+  - large_tuple  # allow any tuple size
+  - todo  # flagging TODO/FIXME comments just creates unhelpful background noise
+  - trailing_comma  # allow trailing commas in arrays and dictionaries on a case-by-case basis
+
+opt_in_rules:
+  - closure_end_indentation  # ensure closure } lines up with {
+  - closure_spacing  # single space inside each brace
+  - collection_alignment  # in collection literals, align indentation of items
+  - contains_over_filter_count  # prefer .contains to .filter().count != 0
+  - contains_over_filter_is_empty  # prefer .contains to !.filter().isEmpty
+  - contains_over_first_not_nil  # prefer .contains to .first(where)!=nil
+  - contains_over_range_nil_comparison  # prefer .contains to .range(of:) != nil
+  - convenience_type  # use enum, not struct, for namespacing constants
+  - discouraged_assert  # prefer assertion/preconditionFailure() over assert(false)
+  - discouraged_object_literal  # prefer explicit initializers to inline image/color literals
+  - empty_collection_literal  # prefer .isEmpty to == []
+  - empty_count  # (error by default) prefer .isEmpty to .count == 0
+  - empty_string  # .isEmpty over == ""
+  - empty_xctest_method  # flag empty methods in XCTest cases
+  - explicit_init  # discourage explicit Class.init() calls
+  - fatal_error_message  # fatalError must have message
+  - first_where  # .first(where) over .filter().first
+  - flatmap_over_map_reduce  # .flatMap over .map().reduce()
+  - identical_operands  # discourage x == x
+  - inclusive_language  # avoid offensive terminology
+  - indentation_width  # consistent indentation
+  - last_where  # .last(where:) over .filter().last
+  - legacy_multiple  # .isMultiple(of:) over % == 0
+  - legacy_random  # prefer newer Swift .random() funcs
+  - literal_expression_end_indentation  # indent closing ] or } with opening one in collection literal
+  - lower_acl_than_parent  # prevent a less accessible identifier from containing a more accessible one
+  - modifier_order  # enforce consistent modifier order, e.g. "override public final"
+  - multiline_literal_brackets  # put brackets on separate lines around multiline literals
+  - no_extension_access_modifier  # never allow access modifier on extension, only on methods
+  - optional_enum_case_matching  # disallow obselete use of ? when matching case against optional enum
+  - operator_usage_whitespace  # use one space around (most) operators
+  - overridden_super_call  # check for super() in certain overridden methods (mostly UIKit/AppKit)
+  - pattern_matching_keywords  # in 'case' patterns, move let and var out of tuples to the case itself, when there's > 1 and all are the same
+  - prefer_nimble  # use Nimble assertions, not XCTAssert functions
+  - prefer_zero_over_explicit_init  # use .zero when available
+  - private_action  # keep @IBActions private (UIKit/AppKit)
+  - private_outlet  # keep @IBOutlets private (UIKit/AppKit)
+  - prohibited_super_call  # don't call super() for certain overridden methods (mostly UIKit/AppKit)
+  - protocol_property_accessors_order  # { get set } over { set get }
+  - quick_discouraged_call  # in Quick tests, block non-test code in describe, context (see https://github.com/realm/SwiftLint/issues/1781)
+  - quick_discouraged_focused_test  # in Quick tests, alert when a describe, context, or test is focused, blocking other tests
+  - quick_discouraged_pending_test  # in Quick tests, alert when a describe, context, or test is temporarily blocked (xdescribe, etc.)
+  - redundant_nil_coalescing  # block redundant "?? nil"
+  - redundant_type_annotation  # block redundant explicit type annotations
+  - single_test_class  # test file should have exactly one XCTest or QuickSpec
+  - sorted_first_last  # use min()/max() over sorted().first/last
+  - sorted_imports  # sort imports alphabetically
+  - strong_iboutlet  # @IBoutlets shouldn't be weak or unowned (UIKit/AppKit)
+  - toggle_bool  # foo.toggle() over foo == !foo
+  - unavailable_function  # make unimplemented functions also uncallable
+  - unneeded_parentheses_in_closure_argument  # discourage parens around args when types aren't specified
+  - unused_declaration  # identify dead code in private declarations
+  - unused_import  # identify imports that are not necessary for the build
+  - vertical_parameter_alignment  # left-align function parameters in a declaration
+  - vertical_parameter_alignment_on_call  # left-align function parameters in a call
+  - weak_delegate  # require vars containing "delegate" to be declared weak (mostly UIKit/AppKit)
+  - xct_specific_matcher  # discourage indiscriminate use of equality test (XCTest)
+  - yoda_condition  # disallow C convention for comparisons: 'if 0 == x'
+
+# Specific rule configurations
+
+cyclomatic_complexity:
+  ignores_case_statements: true
+file_length:
+  warning: 400  # using the defaults but let's be explicit
+  error: 1000
+  ignore_comment_only_lines: true
+indentation_width:
+  indentation_width: 2
+line_length:
+  warning: 120  # this is the default but let's be explicit
+  error: 150
+statement_position:
+  statement_mode: uncuddled_else  # permit else on new line
+switch_case_alignment:
+  indented_cases: true  # indent case within switch
+type_name:
+  max_length:
+    warning: 50  # relaxed a bit to allow for very descriptive type names when needed
+vertical_whitespace:
+  max_empty_lines: 2
